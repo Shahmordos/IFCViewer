@@ -100,8 +100,6 @@ npm run dev
 
 ## Переменные окружения
 
-Backend читает конфигурацию из `.env` (см. `docker-compose.yml`, секция `backend.env_file`). Пример `backend/.env.example`:
-
 ```env
 SECRET_KEY=change-me
 DEBUG=True
@@ -115,9 +113,6 @@ POSTGRES_PASSWORD=change-me
 POSTGRES_HOST=db
 POSTGRES_PORT=5432
 ```
-
-> Реальный `.env` в репозиторий не коммитится (см. `.gitignore`) — храните секреты локально или в секрет-хранилище CI/CD.
-
 ## API
 
 | Метод | Эндпоинт | Описание |
