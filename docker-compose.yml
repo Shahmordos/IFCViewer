@@ -1,0 +1,30 @@
+version: '3.9'
+
+services:
+  backend:
+    build: ./backend
+    container_name: backend
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./backend:/app
+      - ./backend/uploads:/app/uploads
+    environment:
+      - DEBUG=1
+      - PYTHONUNBUFFERED=1 
+
+  frontend:
+    build: ./frontend
+    container_name: frontend
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./frontend:/app          
+      - /app/node_modules         
+    environment:
+      - REACT_APP_API_URL=http://localhost:8000 
+      - WDS_SOCKET_PORT=3000      
+    depends_on:
+      - backend
+    stdin_open: true              
+    tty: true
